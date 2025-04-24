@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build-xv6",
+			"type": "shell",
+			"command": "make",
+			// "args": ["${relativeFile}"],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+		},
+		{
+			"label": "run-gdb-backend-xv6",
+			"type": "shell",
+			"command": "make",
+			"args": ["qemu-gdb"],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+
+			"isBackground": true,
+			  "problemMatcher": {
+				"base": "$gcc",
+				"applyTo": "allDocuments",
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": ".",
+					"endsPattern": "Now run \\'gdb\\'"
+				},  
+			},
+		},
+	]
+}
